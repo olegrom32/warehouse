@@ -9,9 +9,14 @@ Please see code comments for more details.
 
 ## Run the app
 
-Simply run
+Simply run to run with default box sizes
 ```shell
 $ docker-compose up
+```
+
+To configure box sizes (the format for the env variable is a json array of integers):
+```shell
+SIZES="[5000,2000,100]" docker-compose up
 ```
 
 Services exposed:
