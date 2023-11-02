@@ -16,7 +16,7 @@ $ docker-compose up
 
 Services exposed:
 
-> UI: http://localhost
+> Super simple UI: http://localhost
 
 > REST API: http://localhost:8080/order
 
