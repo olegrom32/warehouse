@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    ports:
+      - "8080:8080"
+
+  ui:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "./web:/usr/share/nginx/html"
+
+  docs:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8088:8080"
+    environment:
+      - API_URL=/docs/swagger.yaml
+    volumes:
+      - "./api:/usr/share/nginx/html/docs"
+

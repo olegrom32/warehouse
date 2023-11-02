@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Warehouse API</title>
+    <meta charset="UTF-8">
+
+    <style>
+        html {
+            box-sizing: border-box;
+            height: 100%;
+        }
+        body {
+            align-items: center;
+            height: inherit;
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+</head>
+<div class="wrapper">
+    <section class="form">
+        <div class="row">
+            <input type="text" id="items">
+            <button onclick="callPackage()">Package</button>
+        </div>
+        <div class="row" id="result"></div>
+    </section>
+</div>
+
+<script>
+    const callPackage = async () => {
+        const resp = await fetch("http://localhost:8080/order", {
+            method: "POST",
+            body: JSON.stringify({items: parseInt(document.getElementById('items').value)}),
+        });
+
+        const data = await resp.json();
+
+        document.getElementById('result').innerText = JSON.stringify(data.result);
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+openapi: "3.0.3"
+info:
+  version: 1.0.0
+  title: Warehouse API
+paths:
+  /order:
+    post:
+      description: Create an order for a specific number of items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ items ]
+              properties:
+                items:
+                  type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    example:
+                      5000: 2
+                      2000: 1
+                      250: 1
+        400:
+          description: Bad Request
+        500:
+          description: Internal Server Error
